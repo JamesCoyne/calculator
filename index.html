@@ -2,116 +2,90 @@
 <html>
   <head>
     <title>calculator</title>
-    <style>
-      body{
-        font-family: helvetica;
-        font-style: italic;
-        border: 2px solid black;
-        margin: 20px 20px;
-      }
-      button{
-        background-color: white;
-        border: 2px solid black;
-        color: black;
-        padding: 15px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 5px 5px;
-      }
-
-      .math{
-        background-color: pink;
-      }
-
-      #equals{
-        background-color: black;
-        color: white;
-      }
-      button:hover{
-
-        background-color: yellow;
-      }
-
-      p{
-        font-size: 30px;
-        font-weight: bold;
-        padding: 10px 10px;
-        border: 2px solid black;
-        margin: 5px 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="calculator.js"></script>
   </head>
   <body>
+    <div>
+      <h1 id="numbers">begin typing</h1>
+      <br />
+      <table>
+        <tr>
+          <td>
+              <button class="oper" id="C" onclick="cle()">C</button>
+          </td>
+          <td>
+              <button class="oper" id="AC" onclick="aCle()">AC</button>
+          </td>
+          <td>
+            <button class="oper" id="backsp" onclick="backsp()"> <-</button>
+          </td>
+          <td>
+            <button class="math" id="*" onclick="mat(this.id)">*</button>
+          </td>
 
-    <p id="numbers">begin typing</p>
-    <button class="number" id ="9" onclick="conc(this.id)">9</button>
-    <button class="number" id ="8" onclick="conc(this.id)">8</button>
-    <button class="number" id ="7" onclick="conc(this.id)">7</button>
-    <button class="number" id ="6" onclick="conc(this.id)">6</button>
-    <button class="number" id ="3" onclick="conc(this.id)">3</button>
-    <button class="number" id ="4" onclick="conc(this.id)">4</button>
-    <button class="number" id ="5" onclick="conc(this.id)">5</button>
-    <button class="number" id ="0" onclick="conc(this.id)">0</button>
-    <button class="number" id ="1" onclick="conc(this.id)">1</button>
-    <button class="number" id ="2" onclick="conc(this.id)">2</button>
-    <button class="number" id="C" onclick="cle()">C</button>
+        </tr>
 
-    <button class="math" id="+" onclick="mat(this.id)">+</button>
-    <button class="math" id="-" onclick="mat(this.id)">-</button>
-    <button class="math" id="*" onclick="mat(this.id)">*</button>
-    <button class="math" id="/" onclick="mat(this.id)">/</button>
-    <button id="equals" onclick="equals()">=</button>
+        <tr>
+          <td>
+            <button class="number" id ="7" onclick="conc(this.id)">7</button>
+          </td>
+          <td>
+            <button class="number" id ="8" onclick="conc(this.id)">8</button>
+          </td>
+          <td>
+              <button class="number" id ="9" onclick="conc(this.id)">9</button>
+          </td>
+          <td>
+              <button class="math" id="/" onclick="mat(this.id)">/</button>
+          </td>
+        </tr>
 
-    <script>
-      var currInput = "";
-      var in1 = 0;
-      var in2 = 0;
-      var final = 0;
-      var op = "";
+        <tr>
+          <td>
+            <button class="number" id ="4" onclick="conc(this.id)">4</button>
+          </td>
+          <td>
+            <button class="number" id ="5" onclick="conc(this.id)">5</button>
+          </td>
+          <td>
+            <button class="number" id ="6" onclick="conc(this.id)">6</button>
+          </td>
+          <td>
+              <button class="math" id="-" onclick="mat(this.id)">-</button>
+          </td>
+        </tr>
 
-      function conc(id) {
-        currInput += id;
-        document.getElementById("numbers").innerHTML = currInput;
-      }
+        <tr>
+          <td>
+            <button class="number" id ="1" onclick="conc(this.id)">1</button>
+          </td>
+          <td>
+            <button class="number" id ="2" onclick="conc(this.id)">2</button>
+          </td>
+          <td>
+            <button class="number" id ="3" onclick="conc(this.id)">3</button>
+          </td>
+          <td>
+            <button class="math" id="+" onclick="mat(this.id)">+</button>
+          </td>
+        </tr>
 
-      function cle(){
-        currInput = "";
-        document.getElementById("numbers").innerHTML = "0";
-      }
-
-      function mat(id){
-        op = id;
-        in1 = parseInt(currInput);
-        cle();
-      }
-
-      function equals(){
-        in2 = parseInt(currInput);
-        switch (op) {
-          case "+":
-            final = in2 + in1;
-            break;
-          case "-":
-            final = in1 - in2;
-            break;
-          case "*":
-            final = in1 * in2;
-            break;
-          case "/":
-            final = in1 / in2;
-            break;
-          default:
-            final = parseInt(currInput);
-        }
-        document.getElementById("numbers").innerHTML = final;
-        in1 = 0;
-        in2 = 0;
-        op = "";
-      }
-
-    </script>
-
+        <tr>
+          <td>
+            <button class="number" id ="0" onclick="conc(this.id)">0</button>
+          </td>
+          <td>
+            <button class="number" id="point" onclick="decimal(this.id)">.</button>
+          </td>
+          <td>
+            <button class="number" id="positve" onclick="pos(this.id)">+-</button>
+          </td>
+          <td>
+            <button id="equals" onclick="equals()">=</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
